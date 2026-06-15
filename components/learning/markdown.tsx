@@ -3,9 +3,8 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-import { CodeBlock } from "@/components/playground/code-block";
 import { Callout } from "@/components/learning/callout";
-import { cn } from "@/lib/utils";
+import { CodeBlock } from "@/components/playground/code-block";
 
 // ---------------------------------------------------------------------------
 // Markdown renderer for any free-form lesson prose.
