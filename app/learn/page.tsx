@@ -31,7 +31,7 @@ export default function LearnIndexPage() {
           All modules
         </h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          13 modules, taken in order. Each builds on the last.
+          14 modules, taken in order. Each builds on the last.
         </p>
 
         <div className="mt-6 flex flex-col gap-6">

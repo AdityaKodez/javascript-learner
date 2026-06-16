@@ -23,7 +23,7 @@ export default function RoadmapPage() {
             The full path to confident JavaScript
           </h1>
           <p className="mt-2 text-muted-foreground">
-            13 modules, from your very first line of code to building real
+            14 modules, from your very first line of code to building real
             projects. Follow the path top to bottom — each module unlocks the next.
           </p>
         </div>

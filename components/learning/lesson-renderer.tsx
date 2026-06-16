@@ -9,6 +9,7 @@ import { ContentTable } from "@/components/learning/content-table";
 import { MermaidDiagram } from "@/components/learning/mermaid-diagram";
 import { Playground } from "@/components/playground/playground";
 import { RecapCard } from "@/components/learning/recap-card";
+import { ResourceList } from "@/components/learning/resource-list";
 import { StepsCard } from "@/components/learning/steps-card";
 import { cn } from "@/lib/utils";
 
@@ -97,6 +98,9 @@ function Block({ block }: { block: ContentBlock }) {
 
     case "table":
       return <ContentTable headers={block.headers} rows={block.rows} />;
+
+    case "resources":
+      return <ResourceList title={block.title} items={block.items} />;
 
     case "recap":
       return <RecapCard points={block.points} />;

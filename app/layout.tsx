@@ -5,7 +5,11 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils";
 
-const raleway = Raleway({subsets:['latin'],variable:'--font-sans'})
+// DM Sans is a humanist sans built for readable body text.
+const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-sans" })
+
+// Raleway is reserved for headings, where its display character works well.
+const raleway = Raleway({ subsets: ["latin"], variable: "--font-heading" })
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -21,7 +25,13 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", raleway.variable)}
+      className={cn(
+        "antialiased",
+        dmSans.variable,
+        raleway.variable,
+        fontMono.variable,
+        "font-sans",
+      )}
     >
       <body>
         <ThemeProvider

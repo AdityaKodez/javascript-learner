@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 // ---------------------------------------------------------------------------
 // VisualRoadmap — the big, motivating "where you're going" view.
 //
-// A vertical timeline of all 13 modules. Each node shows: state (done /
+// A vertical timeline of all 14 modules. Each node shows: state (done /
 // current / locked-ish), the module icon, title, tagline, and lesson count.
 // Clicking jumps to the module's first lesson.
 // ---------------------------------------------------------------------------

@@ -112,7 +112,7 @@ export default function HomePage() {
                   The learning path
                 </h2>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  13 modules. Take them in order, or jump to what interests you.
+                  14 modules. Take them in order, or jump to what interests you.
                 </p>
               </div>
               <Button variant="ghost" size="sm" asChild className="shrink-0">

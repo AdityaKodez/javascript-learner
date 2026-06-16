@@ -5,12 +5,6 @@ import { ArrowLeft, ArrowRight, CheckCircle2, Clock, Target } from "lucide-react
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { LearnLayout } from "@/components/learning/learn-layout";
 import { LessonRenderer } from "@/components/learning/lesson-renderer";
 import { Challenge } from "@/components/learning/challenge";
@@ -82,26 +76,23 @@ export default async function LessonPage({
         </div>
 
         {/* Objectives */}
-        <Accordion type="single" collapsible defaultValue="objectives" className="mt-8 rounded-2xl border bg-muted/30 p-5">
-          <AccordionItem value="objectives" className="border-none">
-            <AccordionTrigger className="py-0 hover:no-underline">
-              <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                <Target className="size-4 text-primary" />
-                What you’ll learn
-              </h2>
-            </AccordionTrigger>
-            <AccordionContent>
-              <ul className="mt-3 flex flex-col gap-1.5">
-                {lesson.objectives.map((o, i) => (
-                  <li key={i} className="flex items-start gap-2 text-[15px]">
-                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
-                    <span>{o}</span>
-                  </li>
-                ))}
-              </ul>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        <div className="mt-8 rounded-2xl border bg-card p-6 shadow-sm">
+          <h2 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            <Target className="size-4 text-primary" />
+            What you’ll learn
+          </h2>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+            {lesson.objectives.map((o, i) => (
+              <li
+                key={i}
+                className="flex items-start gap-2.5 text-[15px] leading-relaxed"
+              >
+                <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
+                <span>{o}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         {/* Lesson body */}
         <section className="mt-10">

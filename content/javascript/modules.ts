@@ -13,6 +13,7 @@ import { domModule } from "./10-dom";
 import { eventsModule } from "./11-events";
 import { asyncModule } from "./12-async";
 import { projectsModule } from "./13-projects";
+import { whatsNextModule } from "./14-whats-next";
 
 // ---------------------------------------------------------------------------
 // The full learning path, in order.
@@ -36,6 +37,7 @@ export const modules: Module[] = [
   eventsModule,
   asyncModule,
   projectsModule,
+  whatsNextModule,
 ];
 
 /** Flat list of every lesson across all modules, in path order. */

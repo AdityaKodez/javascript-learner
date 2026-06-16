@@ -64,6 +64,11 @@ export type ContentBlock =
       steps: { title: string; description: string }[];
     }
   | { kind: "table"; headers: string[]; rows: string[][] }
+  | {
+      kind: "resources";
+      title?: string;
+      items: { label: string; url: string; description?: string }[];
+    }
   | { kind: "recap"; points: string[] }
   | {
       kind: "challenge";
