@@ -1,19 +1,17 @@
-import Link from "next/link";
 import { ArrowRight, Clock } from "lucide-react";
+import Link from "next/link";
 
-import { Badge } from "@/components/ui/badge";
+import { ContinueCard } from "@/components/learning/continue-card";
+import { getIcon } from "@/components/learning/icon";
+import { LearnLayout } from "@/components/learning/learn-layout";
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from "@/components/ui/card";
-import { LearnLayout } from "@/components/learning/learn-layout";
-import { ContinueCard } from "@/components/learning/continue-card";
 import { modules } from "@/content/javascript/modules";
-import { getIcon } from "@/components/learning/icon";
 
 // ---------------------------------------------------------------------------
 // /learn — the "all modules" index inside the learning shell.
@@ -40,8 +38,8 @@ export default function LearnIndexPage() {
             return (
               <section key={m.slug}>
                 <div className="mb-3 flex items-center gap-3">
-                  <span className={`flex size-9 items-center justify-center rounded-xl bg-muted ${m.accent}`}>
-                    <ModuleIcon className="size-5" />
+                  <span className={`flex size-9 items-center justify-center max-sm:rounded-xl max-sm:bg-muted ${m.accent}`}>
+                    <ModuleIcon className="size-4" />
                   </span>
                   <div>
                     <h2 className="font-heading text-lg font-semibold">
