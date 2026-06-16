@@ -38,7 +38,7 @@ export default function LearnIndexPage() {
             return (
               <section key={m.slug}>
                 <div className="mb-3 flex items-center gap-3">
-                  <span className={`flex size-9 items-center justify-center max-sm:rounded-xl max-sm:bg-muted ${m.accent}`}>
+                  <span className={`flex size-9 items-center justify-center ${m.accent}`}>
                     <ModuleIcon className="size-4" />
                   </span>
                   <div>
