@@ -1,7 +1,9 @@
 "use client";
 
 import { Play, RotateCcw, Terminal } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -24,6 +26,7 @@ export function Playground({
   const [error, setError] = useState<string | null>(null);
   const [hasRun, setHasRun] = useState(false);
   const [tab, setTab] = useState<"code" | "output">("code");
+  const highlightRef = useRef<HTMLDivElement>(null);
 
   function handleRun() {
     const { output: out, error: err } = runCode(code);
@@ -95,14 +98,55 @@ export function Playground({
           <label htmlFor={`playground-${title}`} className="sr-only">
             Editable JavaScript code
           </label>
-          <textarea
-            id={`playground-${title}`}
-            value={code}
-            onChange={(e) => setCode(e.target.value)}
-            spellCheck={false}
-            aria-label="JavaScript code editor"
-            className="block min-h-32 w-full resize-y bg-transparent p-4 font-mono text-sm leading-relaxed text-zinc-100 outline-none placeholder:text-zinc-500"
-          />
+          {/*
+            Editable, syntax-highlighted editor: a transparent <textarea> sits on
+            top of a <SyntaxHighlighter> render. Both share identical font metrics
+            and padding so the caret/selection line up with the colored tokens.
+          */}
+          <div className="relative min-h-32 font-mono text-sm leading-relaxed">
+            <div
+              ref={highlightRef}
+              aria-hidden
+              className="pointer-events-none absolute inset-0 overflow-auto"
+            >
+              <SyntaxHighlighter
+                language="javascript"
+                style={a11yDark}
+                customStyle={{
+                  margin: 0,
+                  padding: "1rem",
+                  background: "transparent",
+                  fontFamily: "inherit",
+                  fontSize: "inherit",
+                  lineHeight: "inherit",
+                  minHeight: "8rem",
+                }}
+                codeTagProps={{
+                  style: {
+                    fontFamily: "inherit",
+                    fontSize: "inherit",
+                    lineHeight: "inherit",
+                  },
+                }}
+              >
+                {code + "\n"}
+              </SyntaxHighlighter>
+            </div>
+            <textarea
+              id={`playground-${title}`}
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              onScroll={(e) => {
+                if (highlightRef.current) {
+                  highlightRef.current.scrollTop = e.currentTarget.scrollTop;
+                  highlightRef.current.scrollLeft = e.currentTarget.scrollLeft;
+                }
+              }}
+              spellCheck={false}
+              aria-label="JavaScript code editor"
+              className="relative block min-h-32 w-full resize-y whitespace-pre overflow-auto bg-transparent p-4 font-mono text-sm leading-relaxed text-transparent caret-zinc-100 outline-none placeholder:text-zinc-500"
+            />
+          </div>
         </TabsContent>
 
         <TabsContent value="output" className="mt-0 p-0">
