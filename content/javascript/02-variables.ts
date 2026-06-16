@@ -23,6 +23,15 @@ export const variablesModule: Module = {
       ],
       content: [
         {
+          kind: "why",
+          point:
+            "Variables let your program REMEMBER things — a name, a score, a price — and use them again later.",
+          build:
+            "a running score counter for a quiz game that goes up every time the player answers correctly.",
+          without:
+            "your app forgets every value the instant it's used, so nothing can ever change or add up.",
+        },
+        {
           kind: "paragraph",
           text: "A **variable** is a labeled box that holds a value. You put something in, give the box a name, and later you can look inside or swap the contents. Programs are basically thousands of these labeled boxes talking to each other.",
         },
@@ -82,6 +91,15 @@ export const variablesModule: Module = {
           kind: "heading",
           level: 2,
           text: "Changing a variable's value",
+        },
+        {
+          kind: "predict",
+          title: "Predict before you run",
+          code: "let age = 25;\nage = 26;\nconsole.log(age);",
+          options: ["25", "26", "25\n26", "Error"],
+          answer: 1,
+          explanation:
+            "The box `age` started at 25, then we replaced its contents with 26. Only the final value is printed — and only once, because there's a single console.log.",
         },
         {
           kind: "code",
@@ -205,6 +223,15 @@ export const variablesModule: Module = {
         "Avoid the common `var` pitfalls",
       ],
       content: [
+        {
+          kind: "why",
+          point:
+            "Choosing `const` vs `let` tells JavaScript (and other readers) whether a value is allowed to change — and catches accidental changes for you.",
+          build:
+            "a settings object where the app name is locked with `const` but the user's theme can switch with `let`.",
+          without:
+            "you'd overwrite values by accident and spend hours hunting bugs JavaScript could have caught instantly.",
+        },
         {
           kind: "paragraph",
           text: "You've seen `let`. There are actually three keywords for creating variables in JavaScript: **`let`**, **`const`**, and **`var`**. The good news: you only really need to understand two of them.",

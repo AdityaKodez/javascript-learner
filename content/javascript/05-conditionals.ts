@@ -22,6 +22,15 @@ export const conditionalsModule: Module = {
       ],
       content: [
         {
+          kind: "why",
+          point:
+            "Conditionals are how your program reacts differently to different situations instead of doing the exact same thing every time.",
+          build:
+            "a login check that shows 'Welcome back!' for the right password and 'Wrong password' for anything else.",
+          without:
+            "every user sees identical output — your app can't respond to what's actually happening.",
+        },
+        {
           kind: "paragraph",
           text: "So far your code runs every line top to bottom, no matter what. Real programs need to **make decisions**: 'if it's raining, take an umbrella; otherwise, wear sunglasses.' The `if` statement is how code asks a question and picks what to do.",
         },
@@ -114,6 +123,15 @@ export const conditionalsModule: Module = {
             "Never reached",
           ],
           output: "Grade: C",
+        },
+        {
+          kind: "predict",
+          title: "Predict: does order matter?",
+          code: 'let score = 95;\n\nif (score >= 70) {\n  console.log("C");\n} else if (score >= 90) {\n  console.log("A");\n}',
+          options: ["A", "C", "A\nC", "Nothing"],
+          answer: 1,
+          explanation:
+            "JavaScript runs the FIRST branch that's true and skips the rest. 95 >= 70 is true, so it prints 'C' and never even checks the 90 branch. This is why you must order checks from highest to lowest.",
         },
         {
           kind: "callout",
@@ -236,6 +254,15 @@ export const conditionalsModule: Module = {
       ],
       content: [
         {
+          kind: "why",
+          point:
+            "switch and the ternary are cleaner shortcuts for decisions — less typing and easier to read than long if/else chains.",
+          build:
+            "a menu router that shows a different page for 'home', 'profile', or 'settings', and a one-line 'Hi/Bye' toggle.",
+          without:
+            "you'd write sprawling if/else ladders that are harder to read and easier to get wrong.",
+        },
+        {
           kind: "paragraph",
           text: "`if`/`else if` chains work great for ranges (`score >= 80`). But when you're checking one value against many *exact* options ('is the day Monday, Tuesday, …?'), there's a cleaner tool: the **`switch`** statement. And for simple either/or choices, the **ternary** operator fits on one line.",
         },
@@ -270,6 +297,15 @@ export const conditionalsModule: Module = {
           variant: "warning",
           title: "Don't forget break!",
           text: "Without `break`, once a case matches, JavaScript runs it AND every case after it. This 'fall through' is rarely what you want. Always end a case with `break;` unless you deliberately want fall-through.",
+        },
+        {
+          kind: "predict",
+          title: "Predict: a missing break",
+          code: 'let fruit = "apple";\n\nswitch (fruit) {\n  case "apple":\n    console.log("Apple");\n  case "banana":\n    console.log("Banana");\n    break;\n}',
+          options: ["Apple", "Apple\nBanana", "Banana", "Nothing"],
+          answer: 1,
+          explanation:
+            "The 'apple' case has no `break`, so after printing 'Apple' it FALLS THROUGH into the 'banana' case and prints 'Banana' too — stopping only at that break. This is exactly the bug `break` prevents.",
         },
         {
           kind: "heading",

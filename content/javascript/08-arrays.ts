@@ -23,6 +23,15 @@ export const arraysModule: Module = {
       ],
       content: [
         {
+          kind: "why",
+          point:
+            "Arrays let one variable hold a whole LIST — so you can manage 100 items as easily as one.",
+          build:
+            "a to-do app that keeps every task in one `todos` list you can add to, read, and update.",
+          without:
+            "you'd need a separate variable for every single item (task1, task2, task3…) — unmanageable fast.",
+        },
+        {
           kind: "paragraph",
           text: "A variable holds one value. But what if you need to store *many* related values — like a list of scores, a cart of items, or the days of the week? An **array** is a single variable that holds an ordered list. It's the workhorse of JavaScript.",
         },
@@ -78,6 +87,15 @@ export const arraysModule: Module = {
             "Index 2 = third = 'blue'",
           ],
           output: "red\ngreen\nblue",
+        },
+        {
+          kind: "predict",
+          title: "Predict: which index?",
+          code: 'let colors = ["red", "green", "blue"];\nconsole.log(colors[3]);',
+          options: ["blue", "red", "undefined", "Error"],
+          answer: 2,
+          explanation:
+            "The array has 3 items at indexes 0, 1, 2 — there is no index 3. Reading a missing index isn't an error; JavaScript silently returns `undefined`. The last item of a 3-item array is colors[2], not colors[3].",
         },
         {
           kind: "callout",
@@ -254,6 +272,15 @@ export const arraysModule: Module = {
       ],
       content: [
         {
+          kind: "why",
+          point:
+            "Looping and array methods let you ACT on a whole list at once — total every price, print every name, keep only what matches.",
+          build:
+            "a cart that loops through items to compute the grand total, then filters out the out-of-stock ones.",
+          without:
+            "you'd hand-write the same operation once per item — and rewrite it every time the list size changes.",
+        },
+        {
           kind: "paragraph",
           text: "Now that you can make arrays, the next superpower is **doing something with every item** — like printing each name or totaling each price. You'll also meet the array *methods*: built-in actions that add, remove, find, and transform items with one clean line.",
         },
@@ -396,6 +423,15 @@ export const arraysModule: Module = {
             "Original is untouched",
           ],
           output: "[ 2, 4, 6 ]\n[ 1, 2, 3 ]",
+        },
+        {
+          kind: "predict",
+          title: "Predict: does map change the original?",
+          code: "let nums = [1, 2, 3];\nnums.map(function(n) {\n  return n * 10;\n});\nconsole.log(nums);",
+          options: ["[ 10, 20, 30 ]", "[ 1, 2, 3 ]", "undefined", "[ ]"],
+          answer: 1,
+          explanation:
+            "`map` returns a BRAND NEW array and never touches the original — but here we ignored the returned value entirely. So `nums` is still [1, 2, 3]. To use the doubled list you must capture it: `let big = nums.map(...)`.",
         },
         {
           kind: "code",

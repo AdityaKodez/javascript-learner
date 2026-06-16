@@ -8,8 +8,10 @@ import { ConceptCard } from "@/components/learning/concept-card";
 import { ContentTable } from "@/components/learning/content-table";
 import { MermaidDiagram } from "@/components/learning/mermaid-diagram";
 import { Playground } from "@/components/playground/playground";
+import { PredictOutput } from "@/components/learning/predict-output";
 import { RecapCard } from "@/components/learning/recap-card";
 import { ResourceList } from "@/components/learning/resource-list";
+import { WhyCard } from "@/components/learning/why-card";
 import { StepsCard } from "@/components/learning/steps-card";
 import { cn } from "@/lib/utils";
 
@@ -69,6 +71,16 @@ function Block({ block }: { block: ContentBlock }) {
         <ConceptCard title={block.title} points={block.points} />
       );
 
+    case "why":
+      return (
+        <WhyCard
+          title={block.title}
+          point={block.point}
+          build={block.build}
+          without={block.without}
+        />
+      );
+
     case "analogy":
       return (
         <AnalogyBlock
@@ -87,6 +99,18 @@ function Block({ block }: { block: ContentBlock }) {
           initialCode={block.initialCode}
           hint={block.hint}
           title={block.title ?? "Try it"}
+        />
+      );
+
+    case "predict":
+      return (
+        <PredictOutput
+          code={block.code}
+          options={block.options}
+          answer={block.answer}
+          explanation={block.explanation}
+          title={block.title}
+          language={block.language}
         />
       );
 

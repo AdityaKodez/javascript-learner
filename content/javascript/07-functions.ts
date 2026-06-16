@@ -23,6 +23,15 @@ export const functionsModule: Module = {
       ],
       content: [
         {
+          kind: "why",
+          point:
+            "Functions let you write a piece of logic ONCE, give it a name, and reuse it everywhere — the core of not repeating yourself.",
+          build:
+            "a `greet(name)` function you call for every new user instead of rewriting the welcome message each time.",
+          without:
+            "you'd copy-paste the same code all over your app — and fix every copy by hand when something changes.",
+        },
+        {
           kind: "paragraph",
           text: "So far every line of code runs once, top to bottom. But real programs reuse the same logic constantly — greeting a user, calculating a total, checking a password. A **function** lets you wrap code into a named package, then run that package whenever you want, as many times as you want.",
         },
@@ -59,6 +68,15 @@ export const functionsModule: Module = {
           variant: "info",
           title: "Define vs. call — the key difference",
           text: "Defining a function (`function sayHi() {...}`) just stores the recipe. Nothing runs yet. To actually run it, you must **call** it by writing its name followed by parentheses: `sayHi()`. Beginners often forget to call!",
+        },
+        {
+          kind: "predict",
+          title: "Predict: did anything run?",
+          code: 'function sayHi() {\n  console.log("Hi!");\n}',
+          options: ["Hi!", "Nothing — it was only defined", "Error", "sayHi"],
+          answer: 1,
+          explanation:
+            "Defining a function only stores the recipe — it doesn't run it. There's no `sayHi()` call anywhere, so nothing prints. You'd need to add `sayHi();` on its own line to actually run it.",
         },
         {
           kind: "heading",
@@ -237,6 +255,15 @@ export const functionsModule: Module = {
       ],
       content: [
         {
+          kind: "why",
+          point:
+            "`return` lets a function hand a RESULT back so you can store it, do math on it, or pass it on — turning functions into answer machines, not just printers.",
+          build:
+            "a `calculateTotal(cart)` function whose result you reuse: show it, add tax to it, and save it.",
+          without:
+            "functions could only print to the screen — you could never capture and reuse what they figure out.",
+        },
+        {
           kind: "paragraph",
           text: "Functions can do more than just *do* something (like print). They can also **give back a result** using the `return` keyword. This turns a function into a question-answering machine: you hand it inputs, it hands you back an answer. We'll also learn about **scope** — which variables are visible where.",
         },
@@ -288,6 +315,15 @@ export const functionsModule: Module = {
             "Use it in more math → 11",
           ],
           output: "11",
+        },
+        {
+          kind: "predict",
+          title: "Predict: log vs return",
+          code: 'function double(x) {\n  console.log(x * 2);\n}\n\nlet result = double(5);\nconsole.log(result);',
+          options: ["10\n10", "10\nundefined", "10", "undefined\n10"],
+          answer: 1,
+          explanation:
+            "double prints 10 (from its console.log), but it has no `return` — so it hands back `undefined`. That undefined lands in `result`, so the second log prints 'undefined'. This is the classic log-vs-return trap.",
         },
         {
           kind: "heading",

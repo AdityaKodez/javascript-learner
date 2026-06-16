@@ -51,12 +51,46 @@ export type ContentBlock =
       output?: string;
     }
   | { kind: "concept"; title: string; icon?: string; points: string[] }
+  | {
+      /**
+       * "Why you're learning this" — a motivation card placed at the TOP of a
+       * lesson. Anchors an abstract concept to something concrete the learner
+       * will be able to BUILD, and what goes wrong without it. Answers the
+       * learner's unspoken "why should I care?" before the theory begins.
+       */
+      kind: "why";
+      title?: string;
+      /** One line: what this concept fundamentally lets you do. */
+      point: string;
+      /** The real, tangible thing the learner will be able to build. */
+      build: string;
+      /** What you can't do / what breaks without this concept. */
+      without?: string;
+    }
   | { kind: "analogy"; title: string; analogy: string; takeaway?: string }
   | {
       kind: "mistake";
       mistakes: { wrong: string; right: string; why: string }[];
     }
   | { kind: "playground"; title?: string; initialCode: string; hint?: string }
+  | {
+      /**
+       * "Predict the output" — shows code, asks the learner to commit to an
+       * answer BEFORE revealing what it prints. Active recall beats passive
+       * reading. `answer` is the index into `options`; the real output is
+       * revealed (computed live) once they choose.
+       */
+      kind: "predict";
+      title?: string;
+      code: string;
+      language?: string;
+      /** The possible outputs to choose between (one is correct). */
+      options: string[];
+      /** Index into `options` of the correct output. */
+      answer: number;
+      /** Optional "why" shown after the learner answers. */
+      explanation?: string;
+    }
   | { kind: "diagram"; mermaid: string; caption?: string }
   | {
       kind: "steps";

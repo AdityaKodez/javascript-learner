@@ -23,6 +23,15 @@ export const loopsModule: Module = {
       ],
       content: [
         {
+          kind: "why",
+          point:
+            "Loops let you repeat work automatically — process 10 items or 10,000 with the same few lines of code.",
+          build:
+            "a leaderboard that prints every player's name and score, however many players sign up.",
+          without:
+            "you'd copy-paste the same line once per item by hand — impossible for lists whose size you don't know yet.",
+        },
+        {
           kind: "paragraph",
           text: "Computers are amazing at one thing humans find boring: **doing the same action over and over without mistakes.** A loop tells JavaScript 'run this block again and again until I say stop.' Instead of copying `console.log` twenty times, you write it once and loop.",
         },
@@ -54,6 +63,15 @@ export const loopsModule: Module = {
             "Body: this runs every loop",
           ],
           output: "1\n2\n3\n4\n5",
+        },
+        {
+          kind: "predict",
+          title: "Predict: where does it stop?",
+          code: "for (let i = 0; i < 3; i++) {\n  console.log(i);\n}",
+          options: ["0\n1\n2", "1\n2\n3", "0\n1\n2\n3", "1\n2"],
+          answer: 0,
+          explanation:
+            "It starts at 0 and keeps going WHILE i < 3 — so it runs for 0, 1, and 2, then stops before 3. Starting at 0 with `< 3` gives you exactly 3 rounds. This off-by-one thinking is the #1 loop gotcha.",
         },
         {
           kind: "callout",
@@ -254,6 +272,15 @@ export const loopsModule: Module = {
       ],
       content: [
         {
+          kind: "why",
+          point:
+            "while loops handle 'keep going until X happens' when you don't know the count in advance, and break/continue give you fine control over each round.",
+          build:
+            "a number-guessing game that keeps asking until the player guesses right, then stops with break.",
+          without:
+            "you'd be stuck only writing loops with a known, fixed length — no 'repeat until done' logic.",
+        },
+        {
           kind: "paragraph",
           text: "The `for` loop is perfect when you know *exactly* how many times to repeat. But sometimes you don't — you just want to 'keep going until something happens.' That's the job of the **`while`** loop. You'll also meet two keywords, `break` and `continue`, that give you finer control inside any loop.",
         },
@@ -357,6 +384,15 @@ export const loopsModule: Module = {
             "Otherwise print i",
           ],
           output: "1\n2\n4\n5",
+        },
+        {
+          kind: "predict",
+          title: "Predict: break vs continue",
+          code: "for (let i = 1; i <= 5; i++) {\n  if (i === 3) {\n    break;\n  }\n  console.log(i);\n}",
+          options: ["1\n2", "1\n2\n4\n5", "1\n2\n3", "1\n2\n3\n4\n5"],
+          answer: 0,
+          explanation:
+            "This uses `break`, not `continue`. The moment i reaches 3, break exits the ENTIRE loop — so 4 and 5 never run. Compare with the `continue` example above (1, 2, 4, 5): continue skips just one round, break stops everything.",
         },
         {
           kind: "table",

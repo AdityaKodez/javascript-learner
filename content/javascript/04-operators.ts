@@ -22,6 +22,15 @@ export const operatorsModule: Module = {
       ],
       content: [
         {
+          kind: "why",
+          point:
+            "Operators are the verbs of code — they actually DO things: add prices, count items, split bills, measure remainders.",
+          build:
+            "a shopping cart that multiplies price by quantity and adds it all into a running total.",
+          without:
+            "your variables would just sit there holding values you could never combine or calculate with.",
+        },
+        {
           kind: "paragraph",
           text: "An **operator** is a symbol that does something to values. You already know one: `+`. JavaScript has a whole set of operators for math, and they work exactly like the math you learned in school — with a few useful shortcuts.",
         },
@@ -94,6 +103,15 @@ export const operatorsModule: Module = {
             "Parentheses force addition first: 2+3=5, then 5*4 = 20",
           ],
           output: "14\n20",
+        },
+        {
+          kind: "predict",
+          title: "Predict: + with text",
+          code: 'console.log("5" + 3);',
+          options: ["8", '"53"', "53", "Error"],
+          answer: 2,
+          explanation:
+            "When one side of `+` is text (a string), JavaScript JOINS instead of adding. \"5\" + 3 becomes the string \"53\", not the number 8. This 'concatenation' trap bites everyone — convert with Number() first when you mean math.",
         },
         {
           kind: "callout",
@@ -244,6 +262,15 @@ export const operatorsModule: Module = {
       ],
       content: [
         {
+          kind: "why",
+          point:
+            "Comparison and logical operators let your code ASK QUESTIONS and get true/false answers — the raw material every decision is built from.",
+          build:
+            "an entry check that only lets someone in when they're 18-or-older AND have a ticket.",
+          without:
+            "your code could calculate numbers but never react to them — no 'if this, then that' anywhere.",
+        },
+        {
           kind: "paragraph",
           text: "Now that you can do math, the next superpower is **asking questions**. Is this number bigger? Are these two values equal? Is the user logged in AND over 18? Comparison and logical operators let your code make decisions based on answers.",
         },
@@ -306,6 +333,15 @@ export const operatorsModule: Module = {
             "Strict: different types → false",
           ],
           output: "true\nfalse\ntrue\nfalse",
+        },
+        {
+          kind: "predict",
+          title: "Predict: == vs ===",
+          code: 'console.log(0 == "");\nconsole.log(0 === "");',
+          options: ["true\ntrue", "false\nfalse", "true\nfalse", "false\ntrue"],
+          answer: 2,
+          explanation:
+            "Loose `==` converts types before comparing, and both 0 and \"\" are 'falsy', so it says true — surprising! Strict `===` checks type too: a number is not a string, so false. This is exactly why you always reach for ===.",
         },
         {
           kind: "playground",

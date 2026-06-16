@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, CheckCircle2, Clock, Target } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, Clock } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -73,25 +73,6 @@ export default async function LessonPage({
             {lesson.durationMin} min
           </Badge>
           <Badge variant="outline">{lesson.difficulty}</Badge>
-        </div>
-
-        {/* Objectives */}
-        <div className="mt-8 rounded-2xl border bg-card p-6 shadow-sm">
-          <h2 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-            <Target className="size-4 text-primary" />
-            What you’ll learn
-          </h2>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-            {lesson.objectives.map((o, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-2.5 text-[15px] leading-relaxed"
-              >
-                <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
-                <span>{o}</span>
-              </li>
-            ))}
-          </ul>
         </div>
 
         {/* Lesson body */}
